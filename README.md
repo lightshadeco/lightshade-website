@@ -70,8 +70,32 @@ To connect GitHub auto-deploy, visit the Vercel dashboard and link the `lightsha
 
 Copy `.env.example` to `.env.local` for local development (see file for required vars).
 
+## CI/CD Pipeline
+
+### Continuous Integration (GitHub Actions)
+
+Every push to `main` and every pull request runs the CI workflow (`.github/workflows/ci.yml`):
+
+| Check | Command |
+|-------|---------|
+| Type check | `tsc --noEmit` |
+| Lint | `next lint` |
+| Format check | `prettier --check .` |
+| Build | `next build` |
+
+All checks must pass before merging to `main`.
+
+### Continuous Deployment (Vercel)
+
+| Event | Environment | URL |
+|-------|-------------|-----|
+| Push to `main` | Production | https://lightshade-website.vercel.app |
+| Pull request | Preview | Auto-generated per PR |
+
+Vercel auto-deploys are triggered automatically — no manual steps needed.
+
 ## Development Workflow
 
 - `main` branch → production
 - Feature branches → `feat/<feature-name>`
-- PRs require review before merging to `main`
+- PRs require passing CI checks and review before merging to `main`
