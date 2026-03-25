@@ -58,10 +58,13 @@ This project is configured for deployment on **Vercel**.
 
 ### Deploy to Vercel
 
-1. Connect the GitHub repo to [Vercel](https://vercel.com)
-2. Vercel auto-detects Next.js — no additional configuration needed
-3. Every push to `main` triggers a production deployment
-4. Pull requests get preview deployments automatically
+The project is deployed on Vercel: **https://lightshade-website.vercel.app**
+
+- Vercel project: `lightshadecos-projects/lightshade-website`
+- Every push to `main` triggers a production deployment
+- Pull requests get preview deployments automatically
+
+To connect GitHub auto-deploy, visit the Vercel dashboard and link the `lightshadeco/lightshade-website` GitHub repo under project settings.
 
 ### Environment Variables
 
